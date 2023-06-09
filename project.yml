@@ -1,0 +1,79 @@
+name: GIFPedia
+
+options:
+  xcodeVersion: 11.0
+  deploymentTarget:
+    iOS: 15.0
+
+settings:
+  MARKETING_VERSION: 1.0.0
+  CURRENT_PROJECT_VERSION: 1
+
+packages:
+  Nuke:
+    url: https://github.com/kean/Nuke
+    from: 11.3.0
+  SHURLSessionNetworkService:
+    url: https://github.com/Yabby1997/SHURLSessionNetworkService
+    from: 0.2.0
+  TenorRepository:
+    url: https://github.com/Yabby1997/TenorRepository
+    from: 0.1.3
+  GiphyRepository:
+    url: https://github.com/Yabby1997/GiphyRepository
+    from: 0.2.4
+  GIFPediaService:
+    url: https://github.com/Yabby1997/GIFPediaService
+    from: 0.4.2
+  PinnedGIFPersistence:
+    url: https://github.com/Yabby1997/PinnedGIFPersistence
+    from: 0.1.0
+  SHUserDefaultsPersistenceService:
+    url: https://github.com/Yabby1997/SHUserDefaultsPersistenceService
+    from: 0.2.1
+
+targets:
+  GIFPediaSwiftUI:
+    type: application
+    platform: iOS
+    sources:
+      - path: GIFPedia
+        excludes: [Info.plist]
+    info:
+      path: GIFPedia/Info.plist
+      properties:
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleInfoDictionaryVersion: "6.0"
+        UISupportedInterfaceOrientations~iphone: [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIApplicationSupportsIndirectInputEvents: YES
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: YES
+        LSRequiresIPhoneOS: YES
+        CFBundleExecutable: $(EXECUTABLE_NAME)
+        CFBundlePackageType: $(PRODUCT_BUNDLE_PACKIAGE_TYPE)
+        UILaunchScreen:
+          UILaunchScreen:
+        CFBundleDevelopmentRegion: $(DEVELOPMENT_LANGUAGE)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+    settings:
+        DEVELOPMENT_TEAM: 5HZQ3M82FA
+        INFOPLIST_FILE: GIFPedia/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.seunghun.GIFPediaSwiftUI
+    dependencies:
+      - package: Nuke
+        product: NukeUI
+      - package: GIFPediaService
+        product: GIFPediaService
+      - package: TenorRepository
+        product: TenorRepository
+      - package: GiphyRepository
+        product: GiphyRepository
+      - package: SHURLSessionNetworkService
+        product: SHURLSessionNetworkService
+      - package: PinnedGIFPersistence
+        product: PinnedGIFPersistence
+      - package: SHUserDefaultsPersistenceService
+        product: SHUserDefaultsPersistenceService
