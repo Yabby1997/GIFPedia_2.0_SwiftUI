@@ -16,6 +16,13 @@ import GIFPediaPresentationLayer
 
 @main
 struct GIFPediaApp: App {
+
+    // https://developers.giphy.com/dashboard/?create=true
+    private let giphyAPIKey = "ENTER_YOUR_GIPHY_API_KEY_FROM_ABOVE_LINK"
+
+    // https://developers.google.com/tenor/guides/quickstart#:~:text=login-,Get%20a,Tenor%20API%20key,-You%20can%20sign
+    private let tenorAPIKey = "ENTER_YOUR_TENOR_API_KEY_FROM_ABOVE_LINK"
+
     private var gifPinService: GIFFlagService = {
         let persistenceService = SHUserDefaultsPersistenceService()
         let pinnedGIFPersistence = PinnedGIFPersistence(persistenceService: persistenceService)
@@ -30,7 +37,7 @@ struct GIFPediaApp: App {
                         searchService: GIFPediaSearchService(
                             gifRepository: GiphyRepository(
                                 networkService: SHURLSessionNetworkService(),
-                                apiKey: "7FckdoA95APjXjzIPCRm9he4wpaa6DFC"
+                                apiKey: giphyAPIKey
                             )
                         ),
                         pinService: gifPinService
@@ -45,7 +52,7 @@ struct GIFPediaApp: App {
                         searchService: GIFPediaSearchService(
                             gifRepository: TenorRepository(
                                 networkService: SHURLSessionNetworkService(),
-                                apiKey: "AIzaSyAyqL6ZgYRj60GIMveovpSLqAsmyGp2BRE"
+                                apiKey: tenorAPIKey
                             )
                         ),
                         pinService: gifPinService
