@@ -1,6 +1,6 @@
 # GIFPedia SwiftUI
 
-A SwiftUI based GIF search app that demonstrating my approach to ideal Clean Architecture.
+A SwiftUI-based GIF search app that demonstrates my approach to ideal Clean Architecture.
 
 ## How to generate project
 
